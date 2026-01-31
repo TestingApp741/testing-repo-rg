@@ -120,6 +120,35 @@ button {
 
 .hero-inner {
   max-width: 640px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-dots::before {
+  content: "";
+  position: absolute;
+  inset: -30% -20% -20% -20%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.24) 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: 0.35;
+  filter: blur(0.2px);
+  mask-image: radial-gradient(circle at 50% 35%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 38%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  mix-blend-mode: screen;
+}
+
+.hero-dots::after {
+  content: "";
+  position: absolute;
+  inset: -20% -10% -10% -10%;
+  background-image:
+    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.25), transparent 40%),
+    radial-gradient(circle at 30% 55%, rgba(255, 255, 255, 0.2), transparent 45%);
+  opacity: 0.5;
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: -2;
 }
 
 .eyebrow {
