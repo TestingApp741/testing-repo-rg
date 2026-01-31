@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RippleRide • Carpool Smarter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="bg-orbs"></div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">RR</span>
+        <div>
+          <p class="brand-title">RippleRide</p>
+          <p class="brand-tag">Carpool smarter, travel kinder</p>
+        </div>
+      </div>
+      <nav class="top-actions">
+        <button class="ghost" id="openAuth">Sign in</button>
+        <button class="primary" id="openApp">Launch app</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">Community-first rides</p>
+          <h1>Every empty seat is a story waiting to happen.</h1>
+          <p class="lead">
+            Build carpools in minutes, keep everyone informed in real time, and split the cost
+            with total clarity. RippleRide gives you a calm, beautiful space to organize
+            commuting, campus runs, and weekend adventures.
+          </p>
+          <div class="hero-cta">
+            <button class="primary" id="heroLaunch">Get started</button>
+            <button class="ghost" id="heroDemo">See features</button>
+          </div>
+          <div class="hero-badges">
+            <span>Seat tracking</span>
+            <span>Instant join</span>
+            <span>Saved to JSON</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="ride-preview">
+            <div>
+              <p class="label">Next ride</p>
+              <h3>Downtown ➜ Lakeside</h3>
+              <p class="meta">Tue · 8:30 AM · 2 seats left</p>
+            </div>
+            <div class="price">$6.50</div>
+          </div>
+          <div class="stack">
+            <div class="stack-card">
+              <p class="label">Eco impact</p>
+              <h4>12.4 kg CO₂ saved</h4>
+              <p class="meta">this month</p>
+            </div>
+            <div class="stack-card">
+              <p class="label">Active drivers</p>
+              <h4>84 in your area</h4>
+              <p class="meta">ready to carpool</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <div class="section-title">
+          <h2>Everything you need to keep a carpool running</h2>
+          <p>Thoughtful details for drivers, passengers, and coordinators.</p>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <h3>Smart matching</h3>
+            <p>Find rides by route, date, and notes with instant filters.</p>
+          </article>
+          <article>
+            <h3>Seat control</h3>
+            <p>Track live availability and never overbook again.</p>
+          </article>
+          <article>
+            <h3>Transparent pricing</h3>
+            <p>Split costs fairly and keep fares easy to explain.</p>
+          </article>
+          <article>
+            <h3>Community trust</h3>
+            <p>Profiles, names, and timestamps keep everything accountable.</p>
+          </article>
+          <article>
+            <h3>Driver hub</h3>
+            <p>Create, edit, and manage rides from one calm dashboard.</p>
+          </article>
+          <article>
+            <h3>Passenger flow</h3>
+            <p>Join, cancel, and track your upcoming rides instantly.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="app-panel" id="app">
+        <div class="panel-head">
+          <div>
+            <h2>Your carpool command center</h2>
+            <p>Sign in to create rides, join carpools, and manage your week.</p>
+          </div>
+          <div class="profile-pill" id="profilePill">
+            <span id="profileName">Guest</span>
+            <button class="ghost" id="logoutBtn">Log out</button>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <aside class="side">
+            <div class="auth-box" id="authBox">
+              <div class="tabs">
+                <button class="tab active" data-tab="login">Login</button>
+                <button class="tab" data-tab="signup">Sign up</button>
+              </div>
+              <form class="form" id="loginForm">
+                <label>
+                  Email
+                  <input type="email" name="email" required />
+                </label>
+                <label>
+                  Password
+                  <input type="password" name="password" required />
+                </label>
+                <button class="primary" type="submit">Login</button>
+              </form>
+              <form class="form hidden" id="signupForm">
+                <label>
+                  Name
+                  <input type="text" name="name" placeholder="Optional" />
+                </label>
+                <label>
+                  Email
+                  <input type="email" name="email" required />
+                </label>
+                <label>
+                  Password
+                  <input type="password" name="password" required />
+                </label>
+                <button class="primary" type="submit">Create account</button>
+              </form>
+              <p class="hint" id="authHint">Use your email to get started.</p>
+            </div>
+
+            <div class="insights">
+              <h4>Today</h4>
+              <ul>
+                <li><strong id="statRides">0</strong> rides available</li>
+                <li><strong id="statSeats">0</strong> seats open</li>
+                <li><strong id="statDrivers">0</strong> active drivers</li>
+              </ul>
+            </div>
+          </aside>
+
+          <section class="workspace">
+            <div class="toolbar">
+              <div class="filters">
+                <input type="text" id="searchInput" placeholder="Search rides" />
+                <input type="text" id="originInput" placeholder="Origin" />
+                <input type="text" id="destinationInput" placeholder="Destination" />
+                <input type="date" id="dateInput" />
+                <button class="ghost" id="filterBtn">Filter</button>
+              </div>
+              <button class="primary" id="createRideBtn">Create ride</button>
+            </div>
+
+            <div class="columns">
+              <div class="column" id="ridesColumn">
+                <h3>Open rides</h3>
+                <div class="card-list" id="ridesList"></div>
+              </div>
+              <div class="column" id="myColumn">
+                <h3>My rides</h3>
+                <div class="card-list" id="myRides"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal hidden" id="rideModal">
+      <div class="modal-card">
+        <div class="modal-head">
+          <h3>Publish a ride</h3>
+          <button class="ghost" id="closeModal">Close</button>
+        </div>
+        <form class="form" id="rideForm">
+          <div class="grid-2">
+            <label>
+              Origin
+              <input type="text" name="origin" required />
+            </label>
+            <label>
+              Destination
+              <input type="text" name="destination" required />
+            </label>
+            <label>
+              Date
+              <input type="date" name="date" required />
+            </label>
+            <label>
+              Time
+              <input type="time" name="time" required />
+            </label>
+            <label>
+              Seats
+              <input type="number" name="seats" min="1" value="3" required />
+            </label>
+            <label>
+              Price per seat
+              <input type="number" name="price" min="0" step="0.5" value="5" />
+            </label>
+          </div>
+          <label>
+            Notes
+            <textarea name="notes" rows="3" placeholder="Pickup details, music vibe, anything helpful"></textarea>
+          </label>
+          <button class="primary" type="submit">Publish ride</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
